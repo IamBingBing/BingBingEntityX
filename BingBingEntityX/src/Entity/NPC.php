@@ -1,14 +1,19 @@
 <?php
 namespace Entity;
 use Entity\EntityBase;
-use pocketmine\entity\Entity;
 use pocketmine\network\mcpe\protocol\MovePlayerPacket;
+use pocketmine\level\Position;
+use pocketmine\network\mcpe\protocol\types\SkinData;
+use pocketmine\Player;
 
 class NPC extends EntityBase{
-    public function __construct(){
-        
+    public $skin ;
+    
+    public function __construct(string $name , Position $pos , SkinData $skin){
+        parent::__construct($name , $pos);
+        $this->skin = $skin;
     }
-    public function seeing($target)
+    public function seeing(Player $target):void
     {
         $horizontal = sqrt(($target->x - $this->x) ** 2 + ($target->z - $this->z) ** 2);
         $vertical = $target->y - $this->y;
@@ -31,8 +36,11 @@ class NPC extends EntityBase{
     }
 
     
-    public function moveing(): void
-    {}
+    public function moveing(Player $target): void
+    {
+        
+        
+    }
 
 
     
