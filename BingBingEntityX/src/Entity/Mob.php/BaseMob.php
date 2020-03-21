@@ -22,6 +22,11 @@ class BaseMob extends EntityBase{
         //TODO 몹 움직임 구현
         
     }
+    public function jumping()
+    {
+        
+    }
+
 
     
 }

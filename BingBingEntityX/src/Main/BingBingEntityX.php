@@ -22,7 +22,7 @@ class BingBingEntityX extends PluginBase implements Listener{
         //TODO 
         //엔피시 생성 가능하게 
     }
-    public function makeAnimal(){
+    public function makeAnimal() :BaseAnimal{
         
         return $this->animal();
         //TODO
