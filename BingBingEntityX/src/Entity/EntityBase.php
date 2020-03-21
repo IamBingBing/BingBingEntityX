@@ -71,4 +71,5 @@ abstract class EntityBase extends Living{
     }
     
     
+    
 }

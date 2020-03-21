@@ -13,12 +13,12 @@ class BingBingEntityX extends PluginBase implements Listener{
     public function onEnable(){
         //$this->getServer()->getPluginManager()->registerEvents($this, $this);
         Entity::registerEntity(NPC::class , true);
+        Entity::registerEntity(Chicken::class , true);
     }
     public function getInstance(): BingBingEntityX{
         return self::$instance;
     }
     public function makeNPC(){
-        return new NPC($name, $pos, $skin);
         //TODO 
         //엔피시 생성 가능하게 
     }
@@ -37,6 +37,7 @@ class BingBingEntityX extends PluginBase implements Listener{
             case "chicken":
             case "닭":
                 return new Chicken($name, $pos);
+                
                 break;
             
                 

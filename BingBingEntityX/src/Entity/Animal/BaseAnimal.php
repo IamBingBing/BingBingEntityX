@@ -66,7 +66,7 @@ class BaseAnimal extends EntityBase{
         }
     }
     public function Attack(){
-        if ($this->getTargetEntity()->distance($this->asPosition()) <= $this->damageRange ){
+        if ($this->getTargetEntity()->distance($this->asPosition()) <= $this->damageRange && $this->isAngry()){
             $event = new EntityDamageByEntityEvent($this, $this->getTargetEntity(), EntityDamageByEntityEvent::CAUSE_ENTITY_ATTACK, $this->damage);
             $event->call();
         }
