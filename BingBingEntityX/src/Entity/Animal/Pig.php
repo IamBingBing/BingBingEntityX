@@ -10,7 +10,7 @@ class Pig extends BaseAnimal{
     public function __construct($name , $pos){
         parent::__construct($name , $pos);
         $nbt = Entity::createBaseNBT($this->asVector3() , $this->motion , $this->yaw , $this->pitch);
-        $this->entity = Entity::createEntity("Chicken", $this->getPosition()->getLevel(), $nbt );
+        $this->entity = Entity::createEntity("Pig", $this->getPosition()->getLevel(), $nbt );
         $this->damage = 1;
         $this->damageTick= 1.5;
         $this->damageRange =1;
