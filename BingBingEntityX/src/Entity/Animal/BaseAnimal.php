@@ -18,9 +18,9 @@ class BaseAnimal extends EntityBase{
     }
     public function seeing()
     {
-        $x = $this->targetpos->x - $this->x;
-        $y = $this->targetpos->y - $this->y;
-        $z = $this->targetpos->z - $this->z;
+        $x = $this->target->x - $this->x;
+        $y = $this->target->y - $this->y;
+        $z = $this->target->z - $this->z;
         $abs = abs($x) + abs($z);
         $main_xyz = sqrt(pow($x, 2) + pow($z, 2));
         
@@ -34,8 +34,8 @@ class BaseAnimal extends EntityBase{
     
     public function moveing(): void
     {
-        $x = $this->targetpos->x - $this->x;
-        $z = $this->targetpos->z - $this->z;
+        $x = $this->target->x - $this->x;
+        $z = $this->target->z - $this->z;
         $main_xyz = sqrt(pow($x, 2) + pow($z, 2));
         if($main_xyz < 1.0) return true;
         $this->motion->x =  $this->speed *($x / $main_xyz);
@@ -46,20 +46,20 @@ class BaseAnimal extends EntityBase{
         
     }
     public function onUpdate(int $currentTick) : bool{
-        if ($this->targetpos->getLevel() == $this->pos->getLevel()){
+        if ($this->target->getLevel() == $this->pos->getLevel()){
             $this->moveing();
             $this->jumping();
             $this->seeing();
         }
         else {
-            $this->teleport(new Position($this->targetpos->x, $this->targetpos->y, $this->targetpos->z, $this->targetpos->level) );
+            $this->teleport(new Position($this->target->x, $this->target->y, $this->target->z, $this->target->level) );
         }
     }
     public function jumping()
     {
         $x= $this-> x + 1 * sin($this-> getYaw());
         $z = $this-> z + 1 * cos($this-> getYaw());
-        $block = $this->targetpos->level->getBlock(new Vector3($x, $this->y, $z));
+        $block = $this->target->level->getBlock(new Vector3($x, $this->y, $z));
         if($block->getId() != 0){
             parent::jump();
             $this->jump();
