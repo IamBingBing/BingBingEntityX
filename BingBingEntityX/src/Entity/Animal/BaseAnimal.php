@@ -32,7 +32,7 @@ class BaseAnimal extends EntityBase{
     
     
     
-    /*public function moveing(): void
+    public function moveing(): void
     {
         $x = $this->target->x - $this->x;
         $z = $this->target->z - $this->z;
@@ -44,7 +44,7 @@ class BaseAnimal extends EntityBase{
         $this->move ($this->motion->x, $this->motion->y, $this->motion->z);
         
         
-    }*/
+    }
     public function onUpdate(int $currentTick) : bool{
         if ($this->target->getLevel() == $this->pos->getLevel()){
             $this->moveing();
