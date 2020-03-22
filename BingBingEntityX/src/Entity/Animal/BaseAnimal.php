@@ -65,12 +65,19 @@ class BaseAnimal extends EntityBase{
             $this->jump();
         }
     }
-    public function Attack(){
+    /*public function Attack(){ //빙빙님 Attack 부분 
         if ($this->getTargetEntity()->distance($this->asPosition()) <= $this->damageRange && $this->isAngry()){
             $event = new EntityDamageByEntityEvent($this, $this->getTargetEntity(), EntityDamageByEntityEvent::CAUSE_ENTITY_ATTACK, $this->damage);
             $event->call();
         }
-    }
+    }*/
+    
+    public function Attack() { //푸키 Attack부분
+        if($this->target == null) return;
+        //if($this->traget->distance($this) <=  0.5) { 타켓 엔티티 0.5 범위에 엔티티 있으면 공격 이거는 따로 몬스터 클래스안에서 하는게 간편할꺼 같습니다.
+           $this->target->attack (new EntityDamageByEntityEvent ($this, $this->target, EntityDamageByEntityEvent::CAUSE_ENTITY_ATTACK, $this->damage));
+        }
+    //}
     
 
 }
