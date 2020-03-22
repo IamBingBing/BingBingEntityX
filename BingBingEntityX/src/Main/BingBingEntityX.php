@@ -53,7 +53,7 @@ class BingBingEntityX extends PluginBase implements Listener{
         if($event instanceof EntityDamageByEntityEvent) {
             $entity = $event->getEntity();
             $target = $event->getDamager();
-            if($entity instanceof Wolf && $target instanceof Player){
+            if($entity instanceof Player && $target instanceof Wolf){
                 foreach(Server::getInstance()->getLevels()->getEntities() as $entity) { 
                     if(isset($this->targetdata[$entity->getId() ) return true; //이미 늑대들이 타켓을 고르면 다른사람이 떄려도 타켓으로 안정함
                     if($entity->distance($entity) <= 10) {  //늑대 주변에 10칸안에 다른 늑대들이 있다면 그늑대들도 때린 사람 공격
