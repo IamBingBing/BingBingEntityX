@@ -51,9 +51,9 @@ class BaseAnimal extends EntityBase{
             $this->jumping();
             $this->seeing();
         }
-        else {
+        /*else { 
             $this->teleport(new Position($this->target->x, $this->target->y, $this->target->z, $this->target->level) );
-        }
+        }*/
     }
     public function jumping()
     {
