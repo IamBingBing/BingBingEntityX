@@ -13,8 +13,8 @@ abstract class EntityBase extends Living{
     public $damageTick;
     public $damageRange;
     public $name;
-    public $targetpos;
-    public $speed;
+    public $target; //타겟
+    public $speed; //객체 스피드
     static protected $entity = [];
     public function __construct($name, Location $pos){
         $nbt = new CompoundTag("loc" , ["x" => $pos->x , "y"=> $pos->y , "z" => $pos->z ]);
@@ -63,13 +63,12 @@ abstract class EntityBase extends Living{
     public function setName($name):void{
         $this->name = $name;
     }
-    public function setTargetPos(Position $pos):void{
-        $this->targetpos = $pos;
+    public function setTarget($player):void{
+        $this->target = $player;
     }
-    public function getTargerPos():Position{
-        return $this->targetpos;
+        public function setTarget($player){
+            return $this->target;
     }
-    
     
     
 }
