@@ -66,8 +66,8 @@ abstract class EntityBase extends Living{
     public function setTarget($player):void{
         $this->target = $player;
     }
-        public function setTarget($player){
-            return $this->target;
+     public function getTarget($player){
+         return $this->target;
     }
     
     
