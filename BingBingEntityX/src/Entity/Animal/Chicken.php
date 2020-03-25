@@ -4,7 +4,7 @@ namespace Entity\Animal;
 use pocketmine\entity\Entity;
 
 class Chicken extends BaseAnimal{
-    public $entity;
+    
     public const NETWORK_ID = self::CHICKEN;
     public function __construct($name , $pos){
         parent::__construct($name , $pos);
@@ -18,8 +18,7 @@ class Chicken extends BaseAnimal{
         
         return $this;
     }
-    
-    
+   
     
 
 }

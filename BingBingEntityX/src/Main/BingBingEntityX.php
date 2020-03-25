@@ -15,6 +15,7 @@ use Entity\Animal\Sheep;
 use Entity\Mob\Wolf;
 use Entity\Mob\Skeleton;
 use Entity\Mob\Zombie;
+use pocketmine\level\Location;
 
 
 
@@ -42,7 +43,7 @@ class BingBingEntityX extends PluginBase implements Listener{
         return self::$instance;
     }
     
-    public function make(string $string , $name, $pos): Entity{
+    public function make(string $string , $name, Location $pos): Entity{
         switch (strtolower($string )){
             case "chicken":
             case "닭":

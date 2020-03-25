@@ -18,12 +18,7 @@ class Cat extends BaseAnimal{
         
         return $this;
     }
-    public function Attack(){
-        if($this->getTargetEntity()== null) return;
-        if($this->getTargetEntity()->distance($this) <=  $this->damageRange) {
-            $this->getTargetEntity()->attack (new EntityDamageByEntityEvent($this, $this->target, EntityDamageByEntityEvent::CAUSE_ENTITY_ATTACK, $this->damage));
-        }
-    }
+    
     
     
 

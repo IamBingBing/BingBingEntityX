@@ -16,7 +16,7 @@ class Horse extends BaseAnimal{
         
         return $this;
     }
-    
+   
     
     
 
