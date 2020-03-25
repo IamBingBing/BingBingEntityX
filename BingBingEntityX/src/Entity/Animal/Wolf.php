@@ -1,12 +1,14 @@
 <?php
-namespace Entity\Animal;
+namespace Entity\Mob;
 
 use pocketmine\entity\Entity;
+use Entity\Animal\BaseAnimal;
 
-class Horse extends BaseAnimal{
-    public const NETWORK_ID = self::HORSE;
+class Wolf extends BaseAnimal{
+    public const NETWORK_ID = self::WOLF;
     public function __construct($name , $pos){
         parent::__construct($name , $pos);
+        
         $this->damage = 1;
         $this->damageTick= 1.5;
         $this->damageRange =1;

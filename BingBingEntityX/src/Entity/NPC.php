@@ -41,6 +41,9 @@ class NPC extends EntityBase{
         
         
     }
+    public function jumping()
+    {}
+
 
 
     

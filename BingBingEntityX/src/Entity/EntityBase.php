@@ -5,6 +5,8 @@ use pocketmine\entity\Entity;
 use pocketmine\level\Location;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\level\Position;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\item\Item;
 
 abstract class EntityBase extends Living{
     public $eid ;
@@ -13,7 +15,7 @@ abstract class EntityBase extends Living{
     public $damageTick;
     public $damageRange;
     public $name;
-    public $target; //타겟
+    public $targetPos; //타겟
     public $speed; //객체 스피드
     static protected $entity = [];
     public function __construct($name, Location $pos){
@@ -63,11 +65,15 @@ abstract class EntityBase extends Living{
     public function setName($name):void{
         $this->name = $name;
     }
-    public function setTarget($player):void{
-        $this->target = $player;
+    public function setTargetPos($player):void{
+        $this->targetPos = $player;
     }
-     public function getTarget($player){
-         return $this->target;
+     public function getTargetPos($player){
+         return $this->targetPos;
+    }
+    public function setItemInHand(Item $item) {
+        $inventory = $this->getEntity()->getInventory();
+        $inventory->setItemInHand($item);
     }
     
     

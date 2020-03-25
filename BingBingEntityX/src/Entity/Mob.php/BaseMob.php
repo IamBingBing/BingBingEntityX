@@ -1,10 +1,9 @@
 <?php
 namespace Entity\Mob;
 use Entity\EntityBase;
-use pocketmine\entity\Entity;
-use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
-class BaseMob extends EntityBase{
+use pocketmine\math\Vector3;
+
+abstract class BaseMob extends EntityBase{
     public function seeing() //푸키 AI 걷기
     {
         $x = $this->target->x - $this->x;
@@ -19,11 +18,6 @@ class BaseMob extends EntityBase{
         
     }
 
-    public function spawn()
-    {
-        //TODO 몹 생성 구현
-        
-    }
 
     public function moveing(): void
     {
@@ -44,6 +38,7 @@ class BaseMob extends EntityBase{
             $this->moveing();
             $this->jumping();
             $this->seeing();
+            $this->Attack();
         }
         /*else { 
             $this->teleport(new Position($this->target->x, $this->target->y, $this->target->z, $this->target->level) );
@@ -61,12 +56,7 @@ class BaseMob extends EntityBase{
         }
     }
     
-      public function Attack() { //푸키 Attack부분
-        if($this->target == null) return;
-        if($this->traget->distance($this) <=  0.5) {// 타켓 엔티티 0.5 범위에 엔티티 있으면 공격 이거는 따로 몬스터 클래스안에서 하는게 간편할꺼 같습니다.
-           $this->target->attack (new EntityDamageByEntityEvent ($this, $this->target, EntityDamageByEntityEvent::CAUSE_ENTITY_ATTACK, $this->damage));
-        }
-    }
+      
 
 
     
